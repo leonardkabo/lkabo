@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Eboun Léonard KABO | Expert Multi-Media & Développeur</title>
+    <link rel="icon" type="image/png" href="favicon.png">
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="style.css">
@@ -14,16 +15,17 @@
     <nav class="fixed w-full z-50 bg-white/80 backdrop-blur-md border-b border-gray-100">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between h-16 items-center">
-                <div class="flex-shrink-0 font-bold text-2xl text-blue-600">
-                    E.L.K
+                <div class="flex-shrink-0 flex items-center gap-2 font-bold text-2xl text-blue-600 cursor-pointer" onclick="showSection('main-content')">
+                    <img src="favicon.png" alt="Logo" class="w-8 h-8 rounded-lg shadow-sm">
+                    <span>L.KABO</span>
                 </div>
                 <div class="hidden md:flex space-x-8 items-center">
-                    <a href="#accueil" class="hover:text-blue-600 transition">Accueil</a>
-                    <a href="#services" class="hover:text-blue-600 transition">Services</a>
-                    <a href="#realisations" class="hover:text-blue-600 transition">Réalisations</a>
-                    <a href="#boutique" class="hover:text-blue-600 transition">Livres</a>
-                    <a href="#devis" class="text-blue-600 font-semibold hover:text-blue-800 transition">Devis</a>
-                    <a href="#contact" class="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition">Contact</a>
+                    <a href="#accueil" onclick="showSection('main-content')" class="hover:text-blue-600 transition">Accueil</a>
+                    <a href="#services" onclick="showSection('main-content')" class="hover:text-blue-600 transition">Services</a>
+                    <a href="#realisations" onclick="showSection('main-content')" class="hover:text-blue-600 transition">Réalisations</a>
+                    <a href="#boutique" onclick="showSection('main-content')" class="hover:text-blue-600 transition">Livres</a>
+                    <a href="#devis" onclick="showSection('main-content')" class="text-blue-600 font-semibold hover:text-blue-800 transition">Devis</a>
+                    <a href="#contact" onclick="showSection('main-content')" class="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition">Contact</a>
                 </div>
                 <div class="md:hidden">
                     <button id="mobile-menu-btn" class="text-gray-600 focus:outline-none">
@@ -33,101 +35,71 @@
             </div>
         </div>
         <!-- Mobile Menu -->
-        <div id="mobile-menu" class="hidden md:hidden bg-white border-b border-gray-100 absolute w-full animate-fade-in">
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-b border-gray-100 absolute w-full animate-fade-in shadow-lg">
             <div class="px-4 py-4 space-y-2">
-                <a href="#accueil" class="block py-2 hover:bg-gray-50 px-2 rounded">Accueil</a>
-                <a href="#services" class="block py-2 hover:bg-gray-50 px-2 rounded">Services</a>
-                <a href="#realisations" class="block py-2 hover:bg-gray-50 px-2 rounded">Réalisations</a>
-                <a href="#boutique" class="block py-2 hover:bg-gray-50 px-2 rounded">Livres</a>
-                <a href="#devis" class="block py-2 hover:bg-gray-50 px-2 rounded">Demander un Devis</a>
-                <a href="#contact" class="block py-2 bg-blue-600 text-white text-center rounded">Contact</a>
+                <a href="#accueil" onclick="showSection('main-content'); toggleMenu();" class="block py-2 hover:bg-gray-50 px-2 rounded">Accueil</a>
+                <a href="#services" onclick="showSection('main-content'); toggleMenu();" class="block py-2 hover:bg-gray-50 px-2 rounded">Services</a>
+                <a href="#realisations" onclick="showSection('main-content'); toggleMenu();" class="block py-2 hover:bg-gray-50 px-2 rounded">Réalisations</a>
+                <a href="#boutique" onclick="showSection('main-content'); toggleMenu();" class="block py-2 hover:bg-gray-50 px-2 rounded">Livres</a>
+                <a href="#devis" onclick="showSection('main-content'); toggleMenu();" class="block py-2 hover:bg-gray-50 px-2 rounded">Demander un Devis</a>
+                <a href="#contact" onclick="showSection('main-content'); toggleMenu();" class="block py-2 bg-blue-600 text-white text-center rounded">Contact</a>
             </div>
         </div>
     </nav>
 
-    <!-- Hero Section -->
-    <section id="accueil" class="relative pt-32 pb-20 overflow-hidden">
-        <div class="absolute inset-0 -z-10 bg-cover bg-center opacity-10" style="background-image: url('hero-bg.png');"></div>
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex flex-col md:flex-row items-center gap-12">
-                <div class="flex-1 text-center md:text-left">
-                    <span class="inline-block px-4 py-1 bg-blue-100 text-blue-700 rounded-full text-sm font-semibold mb-4">
-                        Producteur Multimédia | Journaliste | Développeur Web | Activiste DSSR
-                    </span>
-                    <h1 class="text-4xl md:text-6xl font-extrabold text-gray-900 leading-tight mb-6">
-                        Eboun Léonard <span class="text-blue-600 text-gradient">KABO</span>
-                    </h1>
-                    <p class="text-lg text-gray-600 mb-8 max-w-2xl">
-                        Expert en communication multimédia et développement web, je mets mes compétences au service du changement social et de la performance numérique.
-                    </p>
-                    <div class="flex flex-wrap gap-4 justify-center md:justify-start">
-                        <a href="#contact" class="px-8 py-3 bg-blue-600 text-white font-bold rounded-xl shadow-lg shadow-blue-200 hover:scale-105 transition transform">Mes Services</a>
-                        <a href="#parcours" class="px-8 py-3 bg-white text-blue-600 border-2 border-blue-600 font-bold rounded-xl hover:bg-blue-50 transition">Mon CV</a>
+    <!-- Main Content Wrapper -->
+    <main id="main-content" class="pt-16">
+        <!-- Hero Section -->
+        <section id="accueil" class="relative pt-20 pb-20 overflow-hidden">
+            <div class="absolute inset-0 -z-10 bg-blue-50 opacity-50"></div>
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="flex flex-col md:flex-row items-center gap-12">
+                    <div class="flex-1 text-center md:text-left">
+                        <span class="inline-block px-4 py-1 bg-blue-100 text-blue-700 rounded-full text-sm font-semibold mb-4">
+                            Producteur Multimédia | Journaliste | Développeur Web | Activiste DSSR
+                        </span>
+                        <h1 class="text-4xl md:text-6xl font-extrabold text-gray-900 leading-tight mb-6">
+                            Eboun Léonard <span class="text-blue-600">KABO</span>
+                        </h1>
+                        <p class="text-lg text-gray-600 mb-8 max-w-2xl">
+                            Expert en transformation numérique, je mets mes compétences au service du changement social et de la performance numérique. De la production multimédia haute définition à la conception d'outils d'automatisation intelligents. 
+                        </p>
+                        <div class="flex flex-wrap gap-4 justify-center md:justify-start">
+                            <a href="#services" class="px-8 py-3 bg-blue-600 text-white font-bold rounded-xl shadow-lg shadow-blue-200 hover:scale-105 transition transform">Explorer mes Services</a>
+                            <a href="#contact" class="px-8 py-3 bg-white text-blue-600 border-2 border-blue-600 font-bold rounded-xl hover:bg-blue-50 transition">Me Contacter</a>
+                        </div>
                     </div>
-                </div>
-                <div class="flex-1 relative">
-                    <div class="w-64 h-64 md:w-80 md:h-80 mx-auto rounded-3xl overflow-hidden border-8 border-white shadow-2xl rotate-3 hover:rotate-0 transition duration-500">
-                        <img src="Photo de Profil (2).png" alt="Eboun Léonard KABO" class="w-full h-full object-cover">
-                    </div>
-                    <!-- Stats Floating -->
-                    <div class="absolute -bottom-4 -left-4 bg-white p-4 rounded-xl shadow-xl animate-bounce-slow">
-                        <p class="text-blue-600 font-bold text-xl">5+</p>
-                        <p class="text-xs text-gray-500">Années d'Expérience</p>
-                    </div>
-                    <div class="absolute -top-4 -right-4 bg-white p-4 rounded-xl shadow-xl">
-                        <p class="text-green-600 font-bold text-xl">2</p>
-                        <p class="text-xs text-gray-500">Livres Publiés</p>
+                    <div class="flex-1 relative">
+                        <div class="w-64 h-64 md:w-80 md:h-80 mx-auto rounded-3xl overflow-hidden border-8 border-white shadow-2xl rotate-3 hover:rotate-0 transition duration-500">
+                            <img src="profile-placeholder.png" alt="Eboun Léonard KABO" class="w-full h-full object-cover">
+                        </div>
+                        <div class="absolute -bottom-4 -left-4 bg-white p-4 rounded-xl shadow-xl animate-bounce-slow">
+                            <p class="text-blue-600 font-bold text-xl">5+</p>
+                            <p class="text-xs text-gray-500">Ans d'Expertise</p>
+                        </div>
+                        <div class="absolute -top-4 -right-4 bg-white p-4 rounded-xl shadow-xl">
+                            <p class="text-green-600 font-bold text-xl">2</p>
+                            <p class="text-xs text-gray-500">Livres Publiés</p>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Services Grid -->
-    <section id="services" class="py-20 bg-white">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-16">
-                <h2 class="text-3xl font-bold mb-4">Mes Domaines d'Expertise</h2>
-                <p class="text-gray-600">Une approche multidisciplinaire pour des solutions d'impact.</p>
-            </div>
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-                <!-- Service 1 -->
-                <div class="bg-white p-8 rounded-2xl shadow-sm border border-gray-100 hover:shadow-xl transition group">
-                    <div class="w-12 h-12 bg-blue-100 text-blue-600 rounded-lg flex items-center justify-center mb-6 group-hover:bg-blue-600 group-hover:text-white transition">
-                        <i class="fa-solid fa-code text-2xl"></i>
-                    </div>
-                    <h3 class="font-bold text-xl mb-2">Développement Web</h3>
-                    <p class="text-gray-500 text-sm">Conception de sites vitrines et applications web sur mesure avec OpenClassroom & Xyoos.</p>
+        <!-- Services Grid -->
+        <section id="services" class="py-20 bg-white">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-16">
+                    <h2 class="text-3xl font-bold mb-4">Mes Domaines d'Expertise</h2>
+                    <p class="text-gray-600">Des solutions complètes pour booster votre image et votre productivité.</p>
                 </div>
-                <!-- Service 2 -->
-                <div class="bg-white p-8 rounded-2xl shadow-sm border border-gray-100 hover:shadow-xl transition group">
-                    <div class="w-12 h-12 bg-green-100 text-green-600 rounded-lg flex items-center justify-center mb-6 group-hover:bg-green-600 group-hover:text-white transition">
-                        <i class="fa-solid fa-palette text-2xl"></i>
-                    </div>
-                    <h3 class="font-bold text-xl mb-2">Graphic Design</h3>
-                    <p class="text-gray-500 text-sm">Identité visuelle, logos et supports marketing avec la suite Adobe et Canva.</p>
-                </div>
-                <!-- Service 3 -->
-                <div class="bg-white p-8 rounded-2xl shadow-sm border border-gray-100 hover:shadow-xl transition group">
-                    <div class="w-12 h-12 bg-purple-100 text-purple-600 rounded-lg flex items-center justify-center mb-6 group-hover:bg-purple-600 group-hover:text-white transition">
-                        <i class="fa-solid fa-microphone text-2xl"></i>
-                    </div>
-                    <h3 class="font-bold text-xl mb-2">Journalisme & Com</h3>
-                    <p class="text-gray-600 text-sm">Rédaction web, animation radio et gestion de la communication institutionnelle.</p>
-                </div>
-                <!-- Service 4 -->
-                <div class="bg-white p-8 rounded-2xl shadow-sm border border-gray-100 hover:shadow-xl transition group">
-                    <div class="w-12 h-12 bg-red-100 text-red-600 rounded-lg flex items-center justify-center mb-6 group-hover:bg-red-600 group-hover:text-white transition">
-                        <i class="fa-solid fa-hand-holding-heart text-2xl"></i>
-                    </div>
-                    <h3 class="font-bold text-xl mb-2">Activisme DSSR</h3>
-                    <p class="text-gray-500 text-sm">Plaidoyer pour la santé sexuelle et reproductive et engagement communautaire.</p>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" id="services-list">
+                    <!-- Service cards will be injected by JavaScript -->
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Realisations / Portfolio -->
+         <!-- Realisations / Portfolio -->
     <section id="realisations" class="py-20 bg-gray-50">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex flex-col md:flex-row justify-between items-end mb-12 gap-4">
@@ -146,7 +118,7 @@
                 <!-- Project 1 -->
                 <div class="portfolio-item group" data-category="web">
                     <div class="relative overflow-hidden rounded-2xl aspect-[4/3] mb-4">
-                        <img src="FORUM (1).png" alt="Plateforme HAI-Bénin" class="w-full h-full object-cover transition duration-500 group-hover:scale-110">
+                        <img src="FORUM.png" alt="Plateforme HAI-Bénin" class="w-full h-full object-cover transition duration-500 group-hover:scale-110">
                         <div class="absolute inset-0 bg-gradient-to-t from-blue-900/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-6">
                             <span class="text-white text-sm font-medium">Développement Web</span>
                         </div>
@@ -175,293 +147,200 @@
                             <span class="text-white text-sm font-medium">Multimedia</span>
                         </div>
                     </div>
-                    <h3 class="font-bold text-lg">Campagne "Amour & Vie"</h3>
-                    <p class="text-gray-500 text-sm">Production de contenus audiovisuels pour la sensibilisation DSSR.</p>
+                    <h3 class="font-bold text-lg">Reportage Mariage Prestige"</h3>
+                    <p class="text-gray-500 text-sm">Production de contenus audiovisuels (Photo + Vidéo) pour tous types d'évènements à prix concurrentiel. Livraison dans les meilleurs délais.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Timeline / Parcours -->
-    <section id="parcours" class="py-20 bg-white">
-        <div class="max-w-4xl mx-auto px-4">
-            <h2 class="text-3xl font-bold text-center mb-16">Parcours & Distinctions</h2>
-            <div class="space-y-12 relative before:absolute before:inset-0 before:ml-5 before:-translate-x-px md:before:mx-auto md:before:translate-x-0 before:h-full before:w-0.5 before:bg-gradient-to-b before:from-transparent before:via-blue-200 before:to-transparent">
-                
-                <!-- Item 1 -->
-                <div class="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group is-active">
-                    <div class="flex items-center justify-center w-10 h-10 rounded-full border border-white bg-blue-600 text-white shadow shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2">
-                        <i class="fa-solid fa-award"></i>
+        <!-- Quote Section / Devis -->
+        <section id="devis" class="py-20 bg-blue-600 text-white overflow-hidden relative">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                    <div>
+                        <h2 class="text-4xl font-bold mb-6">Un projet en tête ?</h2>
+                        <p class="text-blue-100 text-lg mb-8">Recevez un devis détaillé directement dans votre boîte mail.</p>
+                        <ul class="space-y-4">
+                            <li class="flex items-center gap-3"><i class="fa-solid fa-circle-check text-green-400"></i> Réponse rapide sous 24h</li>
+                            <li class="flex items-center gap-3"><i class="fa-solid fa-circle-check text-green-400"></i> Tarifs transparents</li>
+                            <li class="flex items-center gap-3"><i class="fa-solid fa-circle-check text-green-400"></i> Accompagnement personnalisé</li>
+                        </ul>
                     </div>
-                    <div class="w-[calc(100%-4rem)] md:w-[45%] p-4 rounded-xl border border-gray-100 bg-white shadow-sm">
-                        <div class="flex items-center justify-between space-x-2 mb-1">
-                            <div class="font-bold text-gray-900">Auteur de Livres</div>
-                            <time class="font-serif italic text-blue-600">2024</time>
-                        </div>
-                        <div class="text-gray-500">Publication de "Excel pour débutant" et "Devenir Graphiste Pro en 20 jours".</div>
-                    </div>
-                </div>
-
-                <!-- Item 2 -->
-                <div class="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group">
-                    <div class="flex items-center justify-center w-10 h-10 rounded-full border border-white bg-gray-400 text-white shadow shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2">
-                        <i class="fa-solid fa-briefcase"></i>
-                    </div>
-                    <div class="w-[calc(100%-4rem)] md:w-[45%] p-4 rounded-xl border border-gray-100 bg-white shadow-sm">
-                        <div class="flex items-center justify-between space-x-2 mb-1">
-                            <div class="font-bold text-gray-900">Chargé de Com & Plaidoyer</div>
-                            <time class="font-serif italic text-blue-600">2024</time>
-                        </div>
-                        <div class="text-gray-500">ONG Health Access Initiative (HAI-Bénin).</div>
-                    </div>
-                </div>
-
-                <!-- Item 3 -->
-                <div class="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group">
-                    <div class="flex items-center justify-center w-10 h-10 rounded-full border border-white bg-gray-400 text-white shadow shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2">
-                        <i class="fa-solid fa-graduation-cap"></i>
-                    </div>
-                    <div class="w-[calc(100%-4rem)] md:w-[45%] p-4 rounded-xl border border-gray-100 bg-white shadow-sm">
-                        <div class="flex items-center justify-between space-x-2 mb-1">
-                            <div class="font-bold text-gray-900">Psychologie (Santé Mentale)</div>
-                            <time class="font-serif italic text-blue-600">2023</time>
-                        </div>
-                        <div class="text-gray-500">Diplôme D.U à l'Université Alison.</div>
-                    </div>
-                </div>
-            </div>
-            <div class="text-center mt-12">
-                <button onclick="window.open('#cv-detail')" class="text-blue-600 font-semibold hover:underline">Voir le CV complet <i class="fa-solid fa-arrow-right ml-2"></i></button>
-            </div>
-        </div>
-    </section>
-
-    <!-- Quote Section / Devis -->
-    <section id="devis" class="py-20 bg-blue-600 text-white overflow-hidden relative">
-        <div class="absolute top-0 right-0 w-64 h-64 bg-blue-500 rounded-full blur-3xl -mr-32 -mt-32 opacity-50"></div>
-        <div class="absolute bottom-0 left-0 w-64 h-64 bg-green-400 rounded-full blur-3xl -ml-32 -mb-32 opacity-20"></div>
-        
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-                <div>
-                    <h2 class="text-4xl font-bold mb-6">Prêt à lancer votre projet ?</h2>
-                    <p class="text-blue-100 text-lg mb-8">Obtenez un devis personnalisé et gratuit pour vos besoins en développement web, design ou production multimédia.</p>
-                    <ul class="space-y-4">
-                        <li class="flex items-center gap-3">
-                            <i class="fa-solid fa-circle-check text-green-400"></i>
-                            <span>Réponse sous 24h à 48h</span>
-                        </li>
-                        <li class="flex items-center gap-3">
-                            <i class="fa-solid fa-circle-check text-green-400"></i>
-                            <span>Accompagnement sur mesure</span>
-                        </li>
-                        <li class="flex items-center gap-3">
-                            <i class="fa-solid fa-circle-check text-green-400"></i>
-                            <span>Expertise pluridisciplinaire</span>
-                        </li>
-                    </ul>
-                </div>
-                
-                <div class="bg-white rounded-3xl p-8 shadow-2xl text-gray-900">
-                    <form id="devis-form" class="space-y-4">
-                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                            <div class="space-y-1">
-                                <label class="text-xs font-bold uppercase text-gray-400">Type de Projet</label>
-                                <select name="project_type" class="w-full p-3 bg-gray-50 border border-gray-200 rounded-xl outline-none focus:ring-2 focus:ring-blue-500" required>
-                                    <option value="web">Site Web / App</option>
-                                    <option value="design">Graphic Design / Logo</option>
-                                    <option value="media">Vidéo / Montage</option>
-                                    <option value="formation">Formation Excel/Design</option>
-                                </select>
-                            </div>
-                            <div class="space-y-1">
-                                <label class="text-xs font-bold uppercase text-gray-400">Budget Estimé</label>
-                                <select name="budget" class="w-full p-3 bg-gray-50 border border-gray-200 rounded-xl outline-none focus:ring-2 focus:ring-blue-500">
-                                    <option value="small">Moins de 100k FCFA</option>
-                                    <option value="medium">100k - 500k FCFA</option>
-                                    <option value="large">Plus de 500k FCFA</option>
-                                </select>
-                            </div>
-                        </div>
-                        <div class="space-y-1">
-                            <label class="text-xs font-bold uppercase text-gray-400">Détails du projet</label>
-                            <textarea name="details" rows="3" placeholder="Décrivez brièvement vos besoins..." class="w-full p-3 bg-gray-50 border border-gray-200 rounded-xl outline-none focus:ring-2 focus:ring-blue-500" required></textarea>
-                        </div>
-                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                            <input type="text" name="name" placeholder="Votre nom complet" class="p-3 bg-gray-50 border border-gray-200 rounded-xl outline-none focus:ring-2 focus:ring-blue-500" required>
-                            <input type="tel" name="phone" placeholder="Votre téléphone" class="p-3 bg-gray-50 border border-gray-200 rounded-xl outline-none focus:ring-2 focus:ring-blue-500" required>
-                        </div>
-                        <button type="submit" class="w-full py-4 bg-blue-600 text-white font-bold rounded-xl hover:bg-blue-700 transition shadow-lg shadow-blue-200">
-                            Obtenir mon devis
-                        </button>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Books Showcase -->
-    <section id="boutique" class="py-20 bg-blue-50">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-16">
-                <h2 class="text-3xl font-bold mb-4">Mes Publications</h2>
-                <p class="text-gray-600">Apprenez avec des guides pratiques conçus pour votre réussite.</p>
-            </div>
-            <div class="flex flex-col md:flex-row justify-center gap-12">
-                <!-- Book 1 -->
-                <div class="bg-white p-6 rounded-3xl shadow-xl max-w-sm transform hover:-translate-y-2 transition">
-                    <img src="book-excel.png" alt="Excel pour débutant" class="w-full rounded-2xl mb-6 shadow-md">
-                    <h3 class="font-bold text-xl mb-2">Excel pour débutant</h3>
-                    <p class="text-gray-500 text-sm mb-6">Maitrisez les fondamentaux de A à Z. Un guide complet pour booster votre productivité.</p>
-                    <div class="flex items-center justify-between">
-                        <span class="text-2xl font-bold text-blue-600">10 000 FCFA</span>
-                        <button class="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700">Commander</button>
-                    </div>
-                </div>
-                <!-- Book 2 -->
-                <div class="bg-white p-6 rounded-3xl shadow-xl max-w-sm transform hover:-translate-y-2 transition">
-                    <img src="Couverture Livre.png" alt="Graphiste Pro" class="w-full rounded-2xl mb-6 shadow-md">
-                    <h3 class="font-bold text-xl mb-2">Devenir Graphiste Pro</h3>
-                    <p class="text-gray-500 text-sm mb-6">Formez-vous en 20 jours aux techniques essentielles du design professionnel.</p>
-                    <div class="flex items-center justify-between">
-                        <span class="text-2xl font-bold text-blue-600">15 000 FCFA</span>
-                        <button class="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700">Commander</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Booking / Contact -->
-    <section id="contact" class="py-20 bg-white">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16">
-                <div>
-                    <h2 class="text-4xl font-bold mb-6">Collaborons ensemble</h2>
-                    <p class="text-gray-600 mb-8">Besoin d'un site web, d'une formation, ou d'un conseil en communication ? Prenez rendez-vous directement ou laissez-moi un message.</p>
                     
-                    <div class="space-y-6">
-                        <div class="flex items-center space-x-4">
-                            <div class="w-12 h-12 bg-blue-100 text-blue-600 rounded-full flex items-center justify-center">
-                                <i class="fa-solid fa-phone"></i>
+                    <div class="bg-white rounded-3xl p-8 shadow-2xl text-gray-900">
+                        <form id="devis-form" class="space-y-4">
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                <select name="project_type" class="w-full p-3 bg-gray-50 border border-gray-200 rounded-xl outline-none focus:ring-2 focus:ring-blue-500" required>
+                                    <option value="" disabled selected>Nature du Projet</option>
+                                    <option value="multimedia">Production Multimédia</option>
+                                    <option value="web">Développement Web</option>
+                                    <option value="automation">Automatisation</option>
+                                    <option value="design">Graphic Design</option>
+                                </select>
+                                <select name="budget" class="w-full p-3 bg-gray-50 border border-gray-200 rounded-xl outline-none focus:ring-2 focus:ring-blue-500">
+                                    <option value="" disabled selected>Budget estimé</option>
+                                    <option value="small">< 100k FCFA</option>
+                                    <option value="medium">100k - 500k FCFA</option>
+                                    <option value="large">> 500k FCFA</option>
+                                </select>
                             </div>
-                            <div>
-                                <p class="text-sm text-gray-500">Appelez-moi</p>
-                                <p class="font-bold">+229 01 65 45 87 78</p>
-                            </div>
+                            <textarea name="details" rows="3" placeholder="Détails de votre besoin..." class="w-full p-3 bg-gray-50 border border-gray-200 rounded-xl outline-none focus:ring-2 focus:ring-blue-500" required></textarea>
+                            <input type="text" name="name" placeholder="Nom complet" class="w-full p-3 bg-gray-50 border border-gray-200 rounded-xl outline-none focus:ring-2 focus:ring-blue-500" required>
+                            <input type="email" name="email" placeholder="Email" class="w-full p-3 bg-gray-50 border border-gray-200 rounded-xl outline-none focus:ring-2 focus:ring-blue-500" required>
+                            <button type="submit" class="w-full py-4 bg-blue-600 text-white font-bold rounded-xl hover:bg-blue-700 transition">Demander mon Devis</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Books Showcase -->
+        <section id="boutique" class="py-20 bg-blue-50">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-16">
+                    <h2 class="text-3xl font-bold mb-4">Mes Formations & Livres</h2>
+                    <p class="text-gray-600">Des ressources pour monter en compétences rapidement.</p>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-12 max-w-4xl mx-auto">
+                    <!-- Book 1 -->
+                    <div class="bg-white p-6 rounded-3xl shadow-xl transform hover:-translate-y-2 transition">
+                        <img src="excel.jpg" alt="Excel pour débutant" class="w-full rounded-2xl mb-6 shadow-md">
+                        <h3 class="font-bold text-xl mb-2">Excel pour débutant</h3>
+                        <p class="text-gray-500 text-sm mb-6">Maitrisez les fondamentaux pour booster votre productivité au quotidien.</p>
+                        <div class="flex items-center justify-between">
+                            <span class="text-2xl font-bold text-blue-600">6 000 FCFA</span>
+                            <button onclick="window.location.href='https://wa.me/22965458778?text=Bonjour,%20je%20souhaite%20acheter%20votre%20livre%20Excel%20pour%20debutant'" class="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700">Acheter</button>
                         </div>
-                        <div class="flex items-center space-x-4">
-                            <div class="w-12 h-12 bg-green-100 text-green-600 rounded-full flex items-center justify-center">
-                                <i class="fa-brands fa-whatsapp text-2xl"></i>
-                            </div>
-                            <div>
-                                <p class="text-sm text-gray-500">WhatsApp</p>
-                                <p class="font-bold">Contact Rapide</p>
-                            </div>
+                    </div>
+                    <!-- Book 2 -->
+                    <div class="bg-white p-6 rounded-3xl shadow-xl transform hover:-translate-y-2 transition">
+                        <img src="Couverture Livre.png" alt="Graphiste Pro" class="w-full rounded-2xl mb-6 shadow-md">
+                        <h3 class="font-bold text-xl mb-2">Devenir Graphiste Pro</h3>
+                        <p class="text-gray-500 text-sm mb-6">Formez-vous en 20 jours aux techniques essentielles du design professionnel.</p>
+                        <div class="flex items-center justify-between">
+                            <span class="text-2xl font-bold text-blue-600">8 000 FCFA</span>
+                            <button onclick="window.location.href='https://wa.me/22965458778?text=Bonjour,%20je%20souhaite%20acheter%20votre%20livre%20Graphiste%20Pro'" class="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700">Acheter</button>
                         </div>
                     </div>
                 </div>
+            </div>
+        </section>
 
-                <div class="bg-gray-50 p-8 rounded-3xl border border-gray-100">
-                    <h3 class="text-xl font-bold mb-6">Prendre Rendez-vous</h3>
-                    <form id="contact-form" class="space-y-4">
-                        <div class="grid grid-cols-2 gap-4">
-                            <input type="text" placeholder="Nom" class="p-3 rounded-xl border border-gray-200 focus:ring-2 focus:ring-blue-500 outline-none" required>
-                            <input type="text" placeholder="Prénom" class="p-3 rounded-xl border border-gray-200 focus:ring-2 focus:ring-blue-500 outline-none" required>
+        <!-- Booking / Contact -->
+        <section id="contact" class="py-20 bg-white">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-16">
+                    <div>
+                        <h2 class="text-4xl font-bold mb-6">Collaborons ensemble</h2>
+                        <div class="space-y-6">
+                            <div class="flex items-center space-x-4">
+                                <div class="w-12 h-12 bg-blue-100 text-blue-600 rounded-full flex items-center justify-center"><i class="fa-solid fa-phone"></i></div>
+                                <div><p class="text-sm text-gray-500">Téléphone</p><p class="font-bold">+229 01 65 45 87 78 / 01 96 77 02 50</p></div>
+                            </div>
+                            <div class="flex items-center space-x-4">
+                                <div class="w-12 h-12 bg-green-100 text-green-600 rounded-full flex items-center justify-center"><i class="fa-brands fa-whatsapp"></i></div>
+                                <div><p href="https://wa.me/22965458778" class="text-sm text-gray-500">WhatsApp</p><p class="font-bold">+22965458778</p></div>
+                            </div>
+                            <div class="flex items-center space-x-4">
+                                <div class="w-12 h-12 bg-red-100 text-red-600 rounded-full flex items-center justify-center"><i class="fa-solid fa-location-dot"></i></div>
+                                <div><p class="text-sm text-gray-500">Localisation</p><p class="font-bold">Parakou, Bénin</p></div>
+                            </div>
                         </div>
-                        <input type="email" placeholder="Email" class="w-full p-3 rounded-xl border border-gray-200 focus:ring-2 focus:ring-blue-500 outline-none" required>
-                        <select class="w-full p-3 rounded-xl border border-gray-200 focus:ring-2 focus:ring-blue-500 outline-none" required>
-                            <option value="">Sélectionnez un service</option>
-                            <option value="web">Développement Web</option>
-                            <option value="graph">Graphic Design</option>
-                            <option value="media">Multimedia / Prise de vue</option>
-                            <option value="dssr">Conseil DSSR</option>
-                            <option value="livre">Achat de livre</option>
-                        </select>
-                        <textarea placeholder="Votre message ou date souhaitée..." rows="4" class="w-full p-3 rounded-xl border border-gray-200 focus:ring-2 focus:ring-blue-500 outline-none" required></textarea>
-                        <button type="submit" class="w-full py-4 bg-blue-600 text-white font-bold rounded-xl hover:bg-blue-700 transition">
-                            Envoyer la demande
-                        </button>
-                    </form>
+                    </div>
+
+                    <div class="bg-gray-50 p-8 rounded-3xl border border-gray-100">
+                        <h3 class="text-xl font-bold mb-6">Prendre Rendez-vous</h3>
+                        <form id="contact-form" class="space-y-4">
+                            <div class="grid grid-cols-2 gap-4">
+                                <input type="text" name="name" placeholder="Nom" class="p-3 rounded-xl border border-gray-200 outline-none" required>
+                                <input type="text" name="surname" placeholder="Prénom" class="p-3 rounded-xl border border-gray-200 outline-none" required>
+                            </div>
+                            <input type="email" name="email" placeholder="Email" class="w-full p-3 rounded-xl border border-gray-200 outline-none" required>
+                            <textarea name="message" placeholder="Votre message ou date de RDV..." rows="4" class="w-full p-3 rounded-xl border border-gray-200 outline-none" required></textarea>
+                            <button type="submit" class="w-full py-4 bg-blue-600 text-white font-bold rounded-xl hover:bg-blue-700 transition">Envoyer la demande</button>
+                        </form>
+                    </div>
                 </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Detail View Wrapper (Hidden by default) -->
+    <section id="detail-view" class="hidden pt-24 pb-20 bg-white min-h-screen">
+        <div class="max-w-5xl mx-auto px-4">
+            <div class="sticky top-20 z-40 bg-white/90 backdrop-blur-md py-4 mb-12 border-b border-gray-100 flex items-center justify-between">
+                <button onclick="showSection('main-content')" class="flex items-center gap-2 text-blue-600 font-bold hover:translate-x-[-4px] transition-transform">
+                    <i class="fa-solid fa-arrow-left"></i> Retour
+                </button>
+                <div class="hidden md:flex gap-4">
+                    <a href="#contact" onclick="showSection('main-content')" class="text-sm font-bold bg-blue-600 text-white px-6 py-2 rounded-xl">Commander ce service</a>
+                </div>
+            </div>
+            
+            <div id="detail-content" class="pb-20">
+                <!-- Content injected via JS -->
             </div>
         </div>
     </section>
 
     <!-- Footer -->
     <footer class="bg-gray-900 text-white py-12">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex flex-col md:flex-row justify-between items-center gap-8">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center md:text-left">
+            <div class="flex flex-col md:flex-row justify-between items-center gap-8 mb-8">
                 <div>
                     <h3 class="text-2xl font-bold mb-2">Eboun Léonard KABO</h3>
-                    <p class="text-gray-400">Expert Multi-Media | Bénin</p>
+                    <p class="text-gray-400">Expert Multi-Media | Parakou, Bénin</p>
+                    <p class="text-blue-400">kaboomstudio@gmail.com</p>
                 </div>
                 <div class="flex space-x-6">
                     <a href="#" class="text-2xl hover:text-blue-400 transition"><i class="fa-brands fa-facebook"></i></a>
                     <a href="#" class="text-2xl hover:text-blue-400 transition"><i class="fa-brands fa-linkedin"></i></a>
-                    <a href="#" class="text-2xl hover:text-blue-400 transition"><i class="fa-brands fa-square-x-twitter"></i></a>
+                    <a href="https://wa.me/22965458778" class="text-2xl hover:text-green-400 transition"><i class="fa-brands fa-whatsapp"></i></a>
                 </div>
             </div>
-            <div class="mt-8 pt-8 border-t border-gray-800 flex flex-col md:flex-row justify-between items-center gap-4">
-                <p class="text-gray-500 text-sm">&copy; 2024 Eboun Léonard KABO. Tous droits réservés.</p>
-                <button id="download-source-btn" class="flex items-center gap-2 px-4 py-2 bg-gray-800 hover:bg-gray-700 text-gray-300 rounded-lg text-xs transition border border-gray-700">
-                    <i class="fa-solid fa-file-code"></i>
-                    Télécharger le code source (.zip)
-                </button>
+            <div class="pt-8 border-t border-gray-800 flex flex-col md:flex-row justify-between items-center gap-4">
+                <p class="text-gray-500 text-sm">&copy; 2026 Eboun Léonard KABO. Tous droits réservés.</p>
+                <div class="flex gap-4">
+                   <button id="download-source-btn" class="flex items-center gap-2 px-4 py-2 bg-gray-800 hover:bg-gray-700 text-gray-300 rounded-lg text-xs transition border border-gray-700">
+                        <i class="fa-solid fa-download"></i> Télécharger Code Source
+                    </button>
+                </div>
             </div>
         </div>
     </footer>
 
-    <!-- Deployment Info Modal -->
-    <div id="download-modal" class="fixed inset-0 z-[101] hidden flex items-center justify-center p-4 bg-black/60 backdrop-blur-md">
-        <div class="bg-white rounded-3xl p-8 max-w-2xl w-full shadow-2xl animate-scale-up max-h-[90vh] overflow-y-auto">
-            <div class="flex justify-between items-center mb-6">
-                <h3 class="text-2xl font-bold">Prêt pour Hostinger ?</h3>
-                <button onclick="closeDownloadModal()" class="text-gray-400 hover:text-gray-600"><i class="fa-solid fa-times text-xl"></i></button>
-            </div>
-            <p class="text-gray-600 mb-6">Pour héberger votre site sur <strong>Hostinger</strong>, vous devez préparer un dossier contenant tous les fichiers. Voici la structure recommandée :</p>
-            
-            <div class="bg-gray-900 text-green-400 p-6 rounded-2xl font-mono text-sm mb-6 overflow-x-auto">
-                <p>/ (racine du site)</p>
-                <p>├── index.html</p>
-                <p>├── style.css</p>
-                <p>├── app.js</p>
-                <p>├── notification.mp3</p>
-                <p>└── [toutes vos images .png]</p>
-            </div>
-
-            <div class="space-y-4 mb-8">
-                <div class="flex gap-4 p-4 bg-blue-50 rounded-xl">
-                    <div class="text-blue-600"><i class="fa-solid fa-circle-info text-xl"></i></div>
-                    <p class="text-sm text-blue-800">Cliquez sur les boutons ci-dessous pour télécharger les fichiers texte individuels. Les images et sons doivent être téléchargés séparément via l'interface de l'IA.</p>
-                </div>
-            </div>
-
-            <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
-                <button onclick="downloadFile('index.html')" class="p-3 bg-gray-100 hover:bg-gray-200 rounded-xl text-center font-semibold text-sm transition">index.html</button>
-                <button onclick="downloadFile('style.css')" class="p-3 bg-gray-100 hover:bg-gray-200 rounded-xl text-center font-semibold text-sm transition">style.css</button>
-                <button onclick="downloadFile('app.js')" class="p-3 bg-gray-100 hover:bg-gray-200 rounded-xl text-center font-semibold text-sm transition">app.js</button>
-            </div>
-            
-            <div class="mt-8 pt-6 border-t border-gray-100 text-center">
-                <p class="text-xs text-gray-400 mb-4 italic">Note: Le bouton "Télécharger" utilise les fichiers actuellement chargés dans votre navigateur.</p>
-                <button onclick="closeDownloadModal()" class="px-8 py-3 bg-blue-600 text-white font-bold rounded-xl">J'ai compris</button>
-            </div>
-        </div>
-    </div>
-
-    <!-- Success Modal -->
+    <!-- Modals -->
     <div id="success-modal" class="fixed inset-0 z-[100] hidden flex items-center justify-center p-4 bg-black/50 backdrop-blur-sm">
-        <div class="bg-white rounded-3xl p-8 max-w-sm w-full text-center shadow-2xl animate-scale-up">
+        <div class="bg-white rounded-3xl p-8 max-w-sm w-full text-center shadow-2xl scale-0 transition-transform duration-300" id="success-modal-content">
             <div class="w-20 h-20 bg-green-100 text-green-600 rounded-full flex items-center justify-center mx-auto mb-6">
                 <i class="fa-solid fa-check text-4xl"></i>
             </div>
-            <h3 class="text-2xl font-bold mb-2">Merci Léonard !</h3>
-            <p class="text-gray-500 mb-6">Votre message a été bien reçu. Je vous recontacterai très rapidement.</p>
+            <h3 class="text-2xl font-bold mb-2">Message envoyé !</h3>
+            <p class="text-gray-500 mb-6">Léonard reviendra vers vous à l'adresse indiquée très prochainement.</p>
             <button onclick="closeModal()" class="w-full py-3 bg-blue-600 text-white font-bold rounded-xl">Fermer</button>
         </div>
     </div>
 
+    <!-- Download Modal -->
+    <div id="download-modal" class="fixed inset-0 z-[101] hidden flex items-center justify-center p-4 bg-black/60 backdrop-blur-md">
+        <div class="bg-white rounded-3xl p-8 max-w-2xl w-full shadow-2xl max-h-[90vh] overflow-y-auto">
+            <div class="flex justify-between items-center mb-6">
+                <h3 class="text-2xl font-bold">Pack Hostinger</h3>
+                <button onclick="closeDownloadModal()" class="text-gray-400 hover:text-gray-600"><i class="fa-solid fa-times text-xl"></i></button>
+            </div>
+            <p class="text-gray-600 mb-6">Téléchargez les fichiers pour héberger votre site sur Hostinger :</p>
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <button onclick="downloadFile('index.html')" class="p-3 bg-gray-100 hover:bg-gray-200 rounded-xl text-center font-semibold text-sm transition">index.html</button>
+                <button onclick="downloadFile('style.css')" class="p-3 bg-gray-100 hover:bg-gray-200 rounded-xl text-center font-semibold text-sm transition">style.css</button>
+                <button onclick="downloadFile('app.js')" class="p-3 bg-gray-100 hover:bg-gray-200 rounded-xl text-center font-semibold text-sm transition">app.js</button>
+                <button onclick="downloadFile('services-data.js')" class="p-3 bg-gray-100 hover:bg-gray-200 rounded-xl text-center font-semibold text-sm transition">services-data.js</button>
+            </div>
+            <p class="mt-6 text-xs text-gray-400 italic">N'oubliez pas d'inclure vos images dans le même dossier que ces fichiers sur votre hébergement.</p>
+        </div>
+    </div>
+
+    <script src="services-data.js"></script>
     <script src="app.js"></script>
 </body>
 </html>
