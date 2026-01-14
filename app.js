@@ -1,7 +1,7 @@
-// app.js - Version Corrigée sans conflits
+// app.js - Version Corrigée
 
 // ===================================
-// CONFIGURATION UNIQUE
+// CONFIGURATION EMAILJS
 // ===================================
 const APP_CONFIG = {
     emailjs: {
@@ -35,7 +35,7 @@ const appUtils = {
     },
     
     showToast: (message) => {
-        alert(message); // Simple mais efficace
+        alert(message); // Simple mais fonctionnel
     }
 };
 
@@ -54,15 +54,6 @@ const appNavigation = {
                 icon.classList.toggle('fa-bars');
                 icon.classList.toggle('fa-times');
             });
-            
-            // Fermer en cliquant ailleurs
-            document.addEventListener('click', (e) => {
-                if (!mobileMenu.contains(e.target) && !mobileMenuBtn.contains(e.target)) {
-                    mobileMenu.classList.add('hidden');
-                    mobileMenuBtn.querySelector('i').classList.remove('fa-times');
-                    mobileMenuBtn.querySelector('i').classList.add('fa-bars');
-                }
-            });
         }
         
         // Smooth scroll
@@ -80,248 +71,205 @@ const appNavigation = {
 };
 
 // ===================================
-// SERVICES - VERSION CORRIGÉE
+// SERVICES - VERSION SIMPLIFIÉE
 // ===================================
 const appServices = {
+    // Fonction unique pour afficher les détails
     showServiceDetail: (serviceId) => {
         console.log('Service cliqué:', serviceId);
         
-        const services = {
-            'multimedia': {
-                title: 'Production Multimédia',
-                content: `
-                    <div class="max-w-4xl mx-auto p-8">
-                        <h1 class="text-4xl font-bold mb-6 text-center">Production Multimédia de Prestige</h1>
-                        <div class="grid md:grid-cols-2 gap-8">
-                            <div class="bg-blue-50 p-6 rounded-xl">
-                                <h3 class="text-2xl font-semibold mb-4 text-blue-600">📸 Nos Forfaits</h3>
-                                <div class="space-y-4">
-                                    <div class="bg-white p-4 rounded-lg shadow">
-                                        <h4 class="font-bold text-lg">Mariage</h4>
-                                        <p class="text-blue-600 font-bold text-2xl">65 000 FCFA</p>
-                                        <ul class="text-sm mt-2 space-y-1 text-gray-600">
-                                            <li>✅ Cérémonie complète</li>
-                                            <li>✅ Album photo luxe</li>
-                                            <li>✅ Vidéo 4K montée</li>
-                                            <li>✅ Livraison 48h</li>
-                                        </ul>
-                                    </div>
-                                    <div class="bg-white p-4 rounded-lg shadow">
-                                        <h4 class="font-bold text-lg">Baptême</h4>
-                                        <p class="text-blue-600 font-bold text-2xl">50 000 FCFA</p>
-                                        <ul class="text-sm mt-2 space-y-1 text-gray-600">
-                                            <li>✅ Cérémonie religieuse</li>
-                                            <li>✅ Photos retouchées</li>
-                                            <li>✅ Montage vidéo</li>
-                                            <li>✅ Livraison rapide</li>
-                                        </ul>
-                                    </div>
+        // Contenu des services
+        const serviceContent = {
+            'multimedia': `
+                <div class="max-w-4xl mx-auto p-8">
+                    <h1 class="text-4xl font-bold mb-6 text-center">Production Multimédia de Prestige</h1>
+                    <div class="grid md:grid-cols-2 gap-8">
+                        <div class="bg-blue-50 p-6 rounded-xl">
+                            <h3 class="text-2xl font-semibold mb-4 text-blue-600">📸 Nos Forfaits</h3>
+                            <div class="space-y-4">
+                                <div class="bg-white p-4 rounded-lg shadow">
+                                    <h4 class="font-bold text-lg">Mariage</h4>
+                                    <p class="text-blue-600 font-bold text-2xl">65 000 FCFA</p>
+                                    <ul class="text-sm mt-2 space-y-1 text-gray-600">
+                                        <li>✅ Cérémonie complète</li>
+                                        <li>✅ Album photo luxe</li>
+                                        <li>✅ Vidéo 4K montée</li>
+                                        <li>✅ Livraison 48h</li>
+                                    </ul>
                                 </div>
-                            </div>
-                            <div class="text-center">
-                                <h3 class="text-2xl font-semibold mb-4">🎯 Réservez Maintenant</h3>
-                                <button onclick="appServices.scrollToContact()" class="bg-blue-600 text-white px-8 py-3 rounded-xl font-bold hover:bg-blue-700 transition">
-                                    📅 Prendre Rendez-vous
-                                </button>
-                                <div class="mt-6 p-4 bg-gray-50 rounded-lg">
-                                    <p class="text-sm text-gray-600">
-                                        <i class="fas fa-phone mr-2"></i>+229 01 65 45 87 78<br>
-                                        <i class="fas fa-whatsapp mr-2"></i>+229 65 45 87 78
-                                    </p>
+                                <div class="bg-white p-4 rounded-lg shadow">
+                                    <h4 class="font-bold text-lg">Baptême</h4>
+                                    <p class="text-blue-600 font-bold text-2xl">50 000 FCFA</p>
+                                    <ul class="text-sm mt-2 space-y-1 text-gray-600">
+                                        <li>✅ Cérémonie religieuse</li>
+                                        <li>✅ Photos retouchées</li>
+                                        <li>✅ Montage vidéo</li>
+                                        <li>✅ Livraison rapide</li>
+                                    </ul>
                                 </div>
                             </div>
                         </div>
+                        <div class="text-center">
+                            <h3 class="text-2xl font-semibold mb-4">🎯 Réservez Maintenant</h3>
+                            <button onclick="appServices.scrollToContact()" class="bg-blue-600 text-white px-8 py-3 rounded-xl font-bold hover:bg-blue-700 transition">
+                                📅 Prendre Rendez-vous
+                            </button>
+                        </div>
                     </div>
-                `
-            },
-            'web-dev': {
-                title: 'Développement Web',
-                content: `
-                    <div class="max-w-4xl mx-auto p-8">
-                        <h1 class="text-4xl font-bold mb-6 text-center">Développement Web & Applications</h1>
-                        <div class="grid md:grid-cols-2 gap-8">
-                            <div class="bg-indigo-50 p-6 rounded-xl">
-                                <h3 class="text-2xl font-semibold mb-4 text-indigo-600">💻 Nos Solutions</h3>
-                                <div class="space-y-4">
-                                    <div class="bg-white p-4 rounded-lg shadow">
-                                        <h4 class="font-bold text-lg">Site Vitrine</h4>
-                                        <p class="text-indigo-600 font-bold text-2xl">150 000 FCFA</p>
-                                        <ul class="text-sm mt-2 space-y-1 text-gray-600">
-                                            <li>✅ Design moderne & responsive</li>
-                                            <li>✅ 5 pages incluses</li>
-                                            <li>✅ SEO optimisé</li>
-                                            <li>✅ Formulaire de contact</li>
-                                        </ul>
-                                    </div>
-                                    <div class="bg-white p-4 rounded-lg shadow">
-                                        <h4 class="font-bold text-lg">E-commerce</h4>
-                                        <p class="text-indigo-600 font-bold text-2xl">350 000 FCFA</p>
-                                        <ul class="text-sm mt-2 space-y-1 text-gray-600">
-                                            <li>✅ Boutique complète</li>
-                                            <li>✅ Paiement Mobile Money</li>
-                                            <li>✅ Gestion des stocks</li>
-                                            <li>✅ Formation incluse</li>
-                                        </ul>
-                                    </div>
+                </div>
+            `,
+            'web-dev': `
+                <div class="max-w-4xl mx-auto p-8">
+                    <h1 class="text-4xl font-bold mb-6 text-center">Développement Web & Applications</h1>
+                    <div class="grid md:grid-cols-2 gap-8">
+                        <div class="bg-indigo-50 p-6 rounded-xl">
+                            <h3 class="text-2xl font-semibold mb-4 text-indigo-600">💻 Nos Solutions</h3>
+                            <div class="space-y-4">
+                                <div class="bg-white p-4 rounded-lg shadow">
+                                    <h4 class="font-bold text-lg">Site Vitrine</h4>
+                                    <p class="text-indigo-600 font-bold text-2xl">150 000 FCFA</p>
+                                    <ul class="text-sm mt-2 space-y-1 text-gray-600">
+                                        <li>✅ Design moderne & responsive</li>
+                                        <li>✅ 5 pages incluses</li>
+                                        <li>✅ SEO optimisé</li>
+                                        <li>✅ Formulaire de contact</li>
+                                    </ul>
                                 </div>
-                            </div>
-                            <div class="text-center">
-                                <h3 class="text-2xl font-semibold mb-4">🚀 Lancez votre Projet</h3>
-                                <button onclick="appServices.scrollToContact()" class="bg-indigo-600 text-white px-8 py-3 rounded-xl font-bold hover:bg-indigo-700 transition">
-                                    💡 Demander un Devis
-                                </button>
-                                <div class="mt-6 p-4 bg-gray-50 rounded-lg">
-                                    <p class="text-sm text-gray-600">
-                                        Stack technique: Next.js, Tailwind, Node.js<br>
-                                        Délais: 1-3 semaines selon projet
-                                    </p>
+                                <div class="bg-white p-4 rounded-lg shadow">
+                                    <h4 class="font-bold text-lg">E-commerce</h4>
+                                    <p class="text-indigo-600 font-bold text-2xl">350 000 FCFA</p>
+                                    <ul class="text-sm mt-2 space-y-1 text-gray-600">
+                                        <li>✅ Boutique complète</li>
+                                        <li>✅ Paiement Mobile Money</li>
+                                        <li>✅ Gestion des stocks</li>
+                                        <li>✅ Formation incluse</li>
+                                    </ul>
                                 </div>
                             </div>
                         </div>
+                        <div class="text-center">
+                            <h3 class="text-2xl font-semibold mb-4">🚀 Lancez votre Projet</h3>
+                            <button onclick="appServices.scrollToContact()" class="bg-indigo-600 text-white px-8 py-3 rounded-xl font-bold hover:bg-indigo-700 transition">
+                                💡 Demander un Devis
+                            </button>
+                        </div>
                     </div>
-                `
-            },
-            'automation': {
-                title: 'Automatisation & IA',
-                content: `
-                    <div class="max-w-4xl mx-auto p-8">
-                        <h1 class="text-4xl font-bold mb-6 text-center">Automatisation Intelligente</h1>
-                        <div class="grid md:grid-cols-2 gap-8">
-                            <div class="bg-green-50 p-6 rounded-xl">
-                                <h3 class="text-2xl font-semibold mb-4 text-green-600">🤖 Nos Solutions</h3>
-                                <div class="space-y-4">
-                                    <div class="bg-white p-4 rounded-lg shadow">
-                                        <h4 class="font-bold text-lg">Assistant WhatsApp</h4>
-                                        <p class="text-green-600 font-bold text-2xl">150 000 FCFA</p>
-                                        <ul class="text-sm mt-2 space-y-1 text-gray-600">
-                                            <li>✅ Réponses automatiques IA</li>
-                                            <li>✅ Capture de prospects</li>
-                                            <li>✅ Intégration Google Sheets</li>
-                                            <li>✅ Support 24/7</li>
-                                        </ul>
-                                    </div>
-                                    <div class="bg-white p-4 rounded-lg shadow">
-                                        <h4 class="font-bold text-lg">CRM Automatisé</h4>
-                                        <p class="text-green-600 font-bold text-2xl">250 000 FCFA</p>
-                                        <ul class="text-sm mt-2 space-y-1 text-gray-600">
-                                            <li>✅ Automatisation des ventes</li>
-                                            <li>✅ Email & SMS automatiques</li>
-                                            <li>✅ Relances intelligentes</li>
-                                            <li>✅ Tableau de bord analytics</li>
-                                        </ul>
-                                    </div>
+                </div>
+            `,
+            'automation': `
+                <div class="max-w-4xl mx-auto p-8">
+                    <h1 class="text-4xl font-bold mb-6 text-center">Automatisation Intelligente</h1>
+                    <div class="grid md:grid-cols-2 gap-8">
+                        <div class="bg-green-50 p-6 rounded-xl">
+                            <h3 class="text-2xl font-semibold mb-4 text-green-600">🤖 Nos Solutions</h3>
+                            <div class="space-y-4">
+                                <div class="bg-white p-4 rounded-lg shadow">
+                                    <h4 class="font-bold text-lg">Assistant WhatsApp</h4>
+                                    <p class="text-green-600 font-bold text-2xl">150 000 FCFA</p>
+                                    <ul class="text-sm mt-2 space-y-1 text-gray-600">
+                                        <li>✅ Réponses automatiques IA</li>
+                                        <li>✅ Capture de prospects</li>
+                                        <li>✅ Intégration Google Sheets</li>
+                                        <li>✅ Support 24/7</li>
+                                    </ul>
                                 </div>
-                            </div>
-                            <div class="text-center">
-                                <h3 class="text-2xl font-semibold mb-4">⚡ Automatisez vos Processus</h3>
-                                <button onclick="appServices.scrollToContact()" class="bg-green-600 text-white px-8 py-3 rounded-xl font-bold hover:bg-green-700 transition">
-                                    🔧 Automatiser Maintenant
-                                </button>
-                                <div class="mt-6 p-4 bg-gray-50 rounded-lg">
-                                    <p class="text-sm text-gray-600">
-                                        Outils: Make.com, Zapier, OpenAI<br>
-                                        Économie de temps: 70% garantie
-                                    </p>
+                                <div class="bg-white p-4 rounded-lg shadow">
+                                    <h4 class="font-bold text-lg">CRM Automatisé</h4>
+                                    <p class="text-green-600 font-bold text-2xl">250 000 FCFA</p>
+                                    <ul class="text-sm mt-2 space-y-1 text-gray-600">
+                                        <li>✅ Automatisation des ventes</li>
+                                        <li>✅ Email & SMS automatiques</li>
+                                        <li>✅ Relances intelligentes</li>
+                                        <li>✅ Tableau de bord analytics</li>
+                                    </ul>
                                 </div>
                             </div>
                         </div>
+                        <div class="text-center">
+                            <h3 class="text-2xl font-semibold mb-4">⚡ Automatisez vos Processus</h3>
+                            <button onclick="appServices.scrollToContact()" class="bg-green-600 text-white px-8 py-3 rounded-xl font-bold hover:bg-green-700 transition">
+                                🔧 Automatiser Maintenant
+                            </button>
+                        </div>
                     </div>
-                `
-            },
-            'design': {
-                title: 'Design & Image de Marque',
-                content: `
-                    <div class="max-w-4xl mx-auto p-8">
-                        <h1 class="text-4xl font-bold mb-6 text-center">Design Graphique Professionnel</h1>
-                        <div class="grid md:grid-cols-2 gap-8">
-                            <div class="bg-purple-50 p-6 rounded-xl">
-                                <h3 class="text-2xl font-semibold mb-4 text-purple-600">🎨 Nos Créations</h3>
-                                <div class="space-y-4">
-                                    <div class="bg-white p-4 rounded-lg shadow">
-                                        <h4 class="font-bold text-lg">Logo & Branding</h4>
-                                        <p class="text-purple-600 font-bold text-2xl">20 000 FCFA</p>
-                                        <ul class="text-sm mt-2 space-y-1 text-gray-600">
-                                            <li>✅ Logo professionnel</li>
-                                            <li>✅ Charte graphique complète</li>
-                                            <li>✅ Carte de visite design</li>
-                                            <li>✅ Fichiers sources inclus</li>
-                                        </ul>
-                                    </div>
-                                    <div class="bg-white p-4 rounded-lg shadow">
-                                        <h4 class="font-bold text-lg">Design Digital</h4>
-                                        <p class="text-purple-600 font-bold text-2xl">5 000 FCFA</p>
-                                        <ul class="text-sm mt-2 space-y-1 text-gray-600">
-                                            <li>✅ Posts réseaux sociaux</li>
-                                            <li>✅ Bannières web</li>
-                                            <li>✅ Affiches publicitaires</li>
-                                            <li>✅ Optimisé pour chaque plateforme</li>
-                                        </ul>
-                                    </div>
+                </div>
+            `,
+            'design': `
+                <div class="max-w-4xl mx-auto p-8">
+                    <h1 class="text-4xl font-bold mb-6 text-center">Design Graphique Professionnel</h1>
+                    <div class="grid md:grid-cols-2 gap-8">
+                        <div class="bg-purple-50 p-6 rounded-xl">
+                            <h3 class="text-2xl font-semibold mb-4 text-purple-600">🎨 Nos Créations</h3>
+                            <div class="space-y-4">
+                                <div class="bg-white p-4 rounded-lg shadow">
+                                    <h4 class="font-bold text-lg">Logo & Branding</h4>
+                                    <p class="text-purple-600 font-bold text-2xl">20 000 FCFA</p>
+                                    <ul class="text-sm mt-2 space-y-1 text-gray-600">
+                                        <li>✅ Logo professionnel</li>
+                                        <li>✅ Charte graphique complète</li>
+                                        <li>✅ Carte de visite design</li>
+                                        <li>✅ Fichiers sources inclus</li>
+                                    </ul>
                                 </div>
-                            </div>
-                            <div class="text-center">
-                                <h3 class="text-2xl font-semibold mb-4">✨ Créez votre Identité</h3>
-                                <button onclick="appServices.scrollToContact()" class="bg-purple-600 text-white px-8 py-3 rounded-xl font-bold hover:bg-purple-700 transition">
-                                    🎨 Créer ma Marque
-                                </button>
-                                <div class="mt-6 p-4 bg-gray-50 rounded-lg">
-                                    <p class="text-sm text-gray-600">
-                                        Logiciels: Photoshop, Illustrator, InDesign<br>
-                                        Révisions: 2 incluses
-                                    </p>
+                                <div class="bg-white p-4 rounded-lg shadow">
+                                    <h4 class="font-bold text-lg">Design Digital</h4>
+                                    <p class="text-purple-600 font-bold text-2xl">5 000 FCFA</p>
+                                    <ul class="text-sm mt-2 space-y-1 text-gray-600">
+                                        <li>✅ Posts réseaux sociaux</li>
+                                        <li>✅ Bannières web</li>
+                                        <li>✅ Affiches publicitaires</li>
+                                        <li>✅ Optimisé pour chaque plateforme</li>
+                                    </ul>
                                 </div>
                             </div>
                         </div>
+                        <div class="text-center">
+                            <h3 class="text-2xl font-semibold mb-4">✨ Créez votre Identité</h3>
+                            <button onclick="appServices.scrollToContact()" class="bg-purple-600 text-white px-8 py-3 rounded-xl font-bold hover:bg-purple-700 transition">
+                                🎨 Créer ma Marque
+                            </button>
+                        </div>
                     </div>
-                `
-            },
-            'com-journalism': {
-                title: 'Communication & Journalisme',
-                content: `
-                    <div class="max-w-4xl mx-auto p-8">
-                        <h1 class="text-4xl font-bold mb-6 text-center">Communication Stratégique</h1>
-                        <div class="grid md:grid-cols-2 gap-8">
-                            <div class="bg-red-50 p-6 rounded-xl">
-                                <h3 class="text-2xl font-semibold mb-4 text-red-600">📢 Nos Services</h3>
-                                <div class="space-y-4">
-                                    <div class="bg-white p-4 rounded-lg shadow">
-                                        <h4 class="font-bold text-lg">Articles & Rédaction</h4>
-                                        <p class="text-red-600 font-bold text-2xl">15 000 FCFA</p>
-                                        <ul class="text-sm mt-2 space-y-1 text-gray-600">
-                                            <li>✅ Articles SEO optimisés</li>
-                                            <li>✅ Contenu web professionnel</li>
-                                            <li>✅ Rédaction journalistique</li>
-                                            <li>✅ 1000 mots inclus</li>
-                                        </ul>
-                                    </div>
-                                    <div class="bg-white p-4 rounded-lg shadow">
-                                        <h4 class="font-bold text-lg">Community Management</h4>
-                                        <p class="text-red-600 font-bold text-2xl">100 000 FCFA/mois</p>
-                                        <ul class="text-sm mt-2 space-y-1 text-gray-600">
-                                            <li>✅ Gestion complète des réseaux</li>
-                                            <li>✅ Stratégie de contenu</li>
-                                            <li>✅ Modération et engagement</li>
-                                            <li>✅ Rapports mensuels</li>
-                                        </ul>
-                                    </div>
+                </div>
+            `,
+            'com-journalism': `
+                <div class="max-w-4xl mx-auto p-8">
+                    <h1 class="text-4xl font-bold mb-6 text-center">Communication Stratégique</h1>
+                    <div class="grid md:grid-cols-2 gap-8">
+                        <div class="bg-red-50 p-6 rounded-xl">
+                            <h3 class="text-2xl font-semibold mb-4 text-red-600">📢 Nos Services</h3>
+                            <div class="space-y-4">
+                                <div class="bg-white p-4 rounded-lg shadow">
+                                    <h4 class="font-bold text-lg">Articles SEO</h4>
+                                    <p class="text-red-600 font-bold text-2xl">15 000 FCFA</p>
+                                    <ul class="text-sm mt-2 space-y-1 text-gray-600">
+                                        <li>✅ Articles SEO optimisés</li>
+                                        <li>✅ Contenu web professionnel</li>
+                                        <li>✅ Rédaction journalistique</li>
+                                        <li>✅ 1000 mots inclus</li>
+                                    </ul>
                                 </div>
-                            </div>
-                            <div class="text-center">
-                                <h3 class="text-2xl font-semibold mb-4">📈 Boostez votre Communication</h3>
-                                <button onclick="appServices.scrollToContact()" class="bg-red-600 text-white px-8 py-3 rounded-xl font-bold hover:bg-red-700 transition">
-                                    📣 Lancer ma Communication
-                                </button>
-                                <div class="mt-6 p-4 bg-gray-50 rounded-lg">
-                                    <p class="text-sm text-gray-600">
-                                        Expertise: Journalisme, modération, animation<br>
-                                        Plateformes: Facebook, Instagram, LinkedIn
-                                    </p>
+                                <div class="bg-white p-4 rounded-lg shadow">
+                                    <h4 class="font-bold text-lg">Community Management</h4>
+                                    <p class="text-red-600 font-bold text-2xl">100 000 FCFA/mois</p>
+                                    <ul class="text-sm mt-2 space-y-1 text-gray-600">
+                                        <li>✅ Gestion complète des réseaux</li>
+                                        <li>✅ Stratégie de contenu</li>
+                                        <li>✅ Modération et engagement</li>
+                                        <li>✅ Rapports mensuels</li>
+                                    </ul>
                                 </div>
                             </div>
                         </div>
+                        <div class="text-center">
+                            <h3 class="text-2xl font-semibold mb-4">📈 Boostez votre Communication</h3>
+                            <button onclick="appServices.scrollToContact()" class="bg-red-600 text-white px-8 py-3 rounded-xl font-bold hover:bg-red-700 transition">
+                                📣 Lancer ma Communication
+                            </button>
+                        </div>
                     </div>
-                `
-            }
+                </div>
+            `
         };
 
         // Afficher le contenu
@@ -330,7 +278,7 @@ const appServices = {
         const detailContent = document.getElementById('detail-content');
         
         if (detailContent && serviceContent[serviceId]) {
-            detailContent.innerHTML = serviceContent[serviceId].content;
+            detailContent.innerHTML = serviceContent[serviceId];
             mainContent.classList.add('hidden');
             detailView.classList.remove('hidden');
             window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -532,7 +480,6 @@ document.addEventListener('DOMContentLoaded', () => {
     
     // Initialize all modules
     appNavigation.init();
-    appServices.init();
     appPortfolio.init();
     appForms.init();
     
@@ -546,4 +493,11 @@ document.addEventListener('DOMContentLoaded', () => {
     }
     
     console.log('✅ Site initialisé avec succès !');
+    
+    // Test EmailJS
+    if (typeof emailjs !== 'undefined') {
+        console.log('✅ EmailJS prêt à l\'emploi');
+    } else {
+        console.warn('⚠️ EmailJS non chargé - Les formulaires ne fonctionneront pas');
+    }
 });
