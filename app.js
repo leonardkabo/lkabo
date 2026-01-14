@@ -1,15 +1,15 @@
-// app.js - Version Complète avec EmailJS Intégré
+// app.js - Version Corrigée sans erreurs
 
 // ===================================
 // CONFIGURATION EMAILJS
 // ===================================
 const CONFIG = {
     emailjs: {
-        publicKey: "05difAaFfgYo_P2QL", // Ta clé publique
-        serviceId: "service_votre_service", // À créer dans EmailJS
+        publicKey: "05difAaFfgYo_P2QL",
+        serviceId: "service_kaboom_studio",
         templates: {
-            contact: "template_45m0nm8", // Template contact
-            devis: "template_quycqzw"    // Template devis
+            contact: "template_45m0nm8",
+            devis: "template_quycqzw"
         }
     },
     
@@ -171,7 +171,7 @@ const navigation = {
 };
 
 // ===================================
-// SERVICES
+// SERVICES - GESTION DES SERVICES CLIQUABLES
 // ===================================
 const services = {
     currentService: null,
@@ -204,9 +204,7 @@ const services = {
                  onclick="services.showServiceDetail('${service.id}')">
                 
                 ${popularPackage ? `
-                    <div class="absolute -top-3 -right-3 bg-gradient-to-r from-yellow-400 to-orange-500 text-white px-3 py-1 rounded-full text-xs font-bold shadow-lg z-10">
-                        ${popularPackage.badge}
-                    </div>
+                    <div class="pricing-badge">${popularPackage.badge}</div>
                 ` : ''}
                 
                 <div class="service-icon-wrapper ${service.category.id}">
@@ -463,6 +461,14 @@ const services = {
                 }
             }
         }, 300);
+    },
+    
+    // Nouvelle fonction pour afficher tous les services
+    showAllServices: () => {
+        const servicesSection = document.querySelector('#services');
+        if (servicesSection) {
+            utils.smoothScroll(servicesSection);
+        }
     },
     
     setupServiceHandlers: () => {
@@ -782,13 +788,6 @@ document.addEventListener('DOMContentLoaded', () => {
     }
     
     console.log('✅ Site initialisé avec succès !');
-    
-    // Test EmailJS connection
-    if (typeof emailjs !== 'undefined') {
-        console.log('✅ EmailJS prêt à l\'emploi');
-    } else {
-        console.warn('⚠️ EmailJS non chargé - Les formulaires ne fonctionneront pas');
-    }
 });
 
 // ===================================

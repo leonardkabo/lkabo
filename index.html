@@ -5,9 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Eboun Léonard KABO | Expert Multi-Media & Développeur</title>
     <meta name="description" content="Expert en transformation numérique, production multimédia, développement web et automatisation. Basé à Parakou, Bénin.">
-    <meta name="keywords" content="développeur web, production multimédia, automatisation, Parakou, Bénin, graphiste, journaliste">
-    <meta name="author" content="Eboun Léonard KABO">
-    
     <link rel="icon" type="image/png" href="favicon.png">
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -95,77 +92,52 @@
                     </div>
                 </div>
             </div>
-        </div>
         </section>
 
-        <!-- Services Grid -->
+        <!-- Services Grid - VERSION CORRIGÉE AVEC SERVICES CLIQUABLES -->
         <section id="services" class="py-20 bg-white">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="text-center mb-16 animate-on-scroll">
                     <h2 class="text-3xl font-bold mb-4">Mes Domaines d'Expertise</h2>
-                    <p class="text-gray-600 max-w-2xl mx-auto">Des solutions complètes pour booster votre image et votre productivité.</p>
+                    <p class="text-gray-600 max-w-2xl mx-auto">Des solutions complètes pour booster votre image et votre productivité. Cliquez sur un service pour voir les détails et commander.</p>
                 </div>
+                
+                <!-- Services seront chargés dynamiquement ici -->
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" id="services-list">
-                    <!-- Service cards will be injected by JavaScript -->
+                    <!-- Les cartes de service seront injectées par JavaScript -->
+                </div>
+                
+                <!-- Bouton voir tous les services -->
+                <div class="text-center mt-12 animate-on-scroll">
+                    <button onclick="services.showAllServices()" class="btn btn-secondary">
+                        <i class="fa-solid fa-th-large mr-2"></i>
+                        Voir tous les services
+                    </button>
                 </div>
             </div>
         </section>
 
-         <!-- Realisations / Portfolio -->
-    <section id="realisations" class="py-20 bg-gray-50">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex flex-col md:flex-row justify-between items-end mb-12 gap-4 animate-on-scroll">
-                <div>
-                    <h2 class="text-3xl font-bold mb-4">Mes Réalisations</h2>
-                    <p class="text-gray-600 max-w-xl">Un aperçu de mes projets récents en développement, design et multimédia.</p>
+        <!-- Realisations / Portfolio -->
+        <section id="realisations" class="py-20 bg-gray-50">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="flex flex-col md:flex-row justify-between items-end mb-12 gap-4 animate-on-scroll">
+                    <div>
+                        <h2 class="text-3xl font-bold mb-4">Mes Réalisations</h2>
+                        <p class="text-gray-600 max-w-xl">Un aperçu de mes projets récents en développement, design et multimédia.</p>
+                    </div>
+                    <div class="flex gap-2">
+                        <button class="filter-btn active px-4 py-2 rounded-full text-sm font-medium transition" data-filter="all">Tous</button>
+                        <button class="filter-btn px-4 py-2 rounded-full text-sm font-medium transition" data-filter="web">Web</button>
+                        <button class="filter-btn px-4 py-2 rounded-full text-sm font-medium transition" data-filter="design">Design</button>
+                        <button class="filter-btn px-4 py-2 rounded-full text-sm font-medium transition" data-filter="media">Multimedia</button>
+                    </div>
                 </div>
-                <div class="flex gap-2">
-                    <button class="filter-btn active px-4 py-2 rounded-full text-sm font-medium transition" data-filter="all">Tous</button>
-                    <button class="filter-btn px-4 py-2 rounded-full text-sm font-medium transition" data-filter="web">Web</button>
-                    <button class="filter-btn px-4 py-2 rounded-full text-sm font-medium transition" data-filter="design">Design</button>
-                    <button class="filter-btn px-4 py-2 rounded-full text-sm font-medium transition" data-filter="media">Multimedia</button>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" id="portfolio-grid">
+                    <!-- Portfolio items will be loaded here -->
                 </div>
             </div>
-
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" id="portfolio-grid">
-                <!-- Project 1 -->
-                <div class="portfolio-item group animate-on-scroll" data-category="web">
-                    <div class="relative overflow-hidden rounded-2xl aspect-[4/3] mb-4">
-                        <img src="FORUM.png" alt="Plateforme HAI-Bénin" class="w-full h-full object-cover transition duration-500 group-hover:scale-110">
-                        <div class="absolute inset-0 bg-gradient-to-t from-blue-900/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-6">
-                            <span class="text-white text-sm font-medium">Développement Web</span>
-                        </div>
-                    </div>
-                    <h3 class="font-bold text-lg">Plateforme Digitale HAI</h3>
-                    <p class="text-gray-500 text-sm">Conception d'une plateforme de suivi pour l'ONG Health Access Initiative.</p>
-                </div>
-
-                <!-- Project 2 -->
-                <div class="portfolio-item group animate-on-scroll" data-category="design">
-                    <div class="relative overflow-hidden rounded-2xl aspect-[4/3] mb-4">
-                        <img src="Automedication-Grossesse ok (2).png" alt="Branding" class="w-full h-full object-cover transition duration-500 group-hover:scale-110">
-                        <div class="absolute inset-0 bg-gradient-to-t from-blue-900/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-6">
-                            <span class="text-white text-sm font-medium">Graphic Design</span>
-                        </div>
-                    </div>
-                    <h3 class="font-bold text-lg">Identité Visuelle Pro</h3>
-                    <p class="text-gray-500 text-sm">Charte graphique complète pour un programme de santé communautaire.</p>
-                </div>
-
-                <!-- Project 3 -->
-                <div class="portfolio-item group animate-on-scroll" data-category="media">
-                    <div class="relative overflow-hidden rounded-2xl aspect-[4/3] mb-4">
-                        <img src="Mariage.png" alt="Multimedia" class="w-full h-full object-cover transition duration-500 group-hover:scale-110">
-                        <div class="absolute inset-0 bg-gradient-to-t from-blue-900/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-6">
-                            <span class="text-white text-sm font-medium">Multimedia</span>
-                        </div>
-                    </div>
-                    <h3 class="font-bold text-lg">Reportage Mariage Prestige"</h3>
-                    <p class="text-gray-500 text-sm">Production de contenus audiovisuels (Photo + Vidéo) pour tous types d'évènements à prix concurrentiel. Livraison dans les meilleurs délais.</p>
-                </div>
-            </div>
-        </div>
-    </section>
+        </section>
 
         <!-- Quote Section / Devis -->
         <section id="devis" class="py-20 bg-blue-600 text-white overflow-hidden relative">
@@ -216,9 +188,8 @@
                     <p class="text-gray-600">Des ressources pour monter en compétences rapidement.</p>
                 </div>
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-12 max-w-4xl mx-auto">
-                    <!-- Book 1 -->
                     <div class="bg-white p-6 rounded-3xl shadow-xl transform hover:-translate-y-2 transition animate-on-scroll">
-                        <img src="exceljpg" alt="Excel pour débutant" class="w-full rounded-2xl mb-6 shadow-md">
+                        <img src="excel.jpg" alt="Excel pour débutant" class="w-full rounded-2xl mb-6 shadow-md">
                         <h3 class="font-bold text-xl mb-2">Excel pour débutant</h3>
                         <p class="text-gray-500 text-sm mb-6">Maitrisez les fondamentaux pour booster votre productivité au quotidien.</p>
                         <div class="flex items-center justify-between">
@@ -226,7 +197,6 @@
                             <button onclick="window.location.href='https://wa.me/22965458778?text=Bonjour ,%20je%20souhaite%20acheter%20votre%20livre%20Excel%20pour%20debutant'" class="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700">Acheter</button>
                         </div>
                     </div>
-                    <!-- Book 2 -->
                     <div class="bg-white p-6 rounded-3xl shadow-xl transform hover:-translate-y-2 transition animate-on-scroll">
                         <img src="Couverture Livre.png" alt="Graphiste Pro" class="w-full rounded-2xl mb-6 shadow-md">
                         <h3 class="font-bold text-xl mb-2">Devenir Graphiste Pro</h3>
