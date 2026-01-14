@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Eboun Léonard KABO | Expert Multi-Media & Développeur</title>
-    <meta name="description" content="Expert en transformation numérique, production multimédia, développement web et automatisation. Basé à Parakou, Bénin.">
     <link rel="icon" type="image/png" href="favicon.png">
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -94,7 +93,7 @@
             </div>
         </section>
 
-        <!-- Services Grid - VERSION CORRIGÉE AVEC SERVICES CLIQUABLES -->
+        <!-- Services Grid - VERSION AVEC SERVICES STATIQUES -->
         <section id="services" class="py-20 bg-white">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="text-center mb-16 animate-on-scroll">
@@ -102,22 +101,86 @@
                     <p class="text-gray-600 max-w-2xl mx-auto">Des solutions complètes pour booster votre image et votre productivité. Cliquez sur un service pour voir les détails et commander.</p>
                 </div>
                 
-                <!-- Services seront chargés dynamiquement ici -->
+                <!-- Services STATIQUES avec boutons Voir Plus -->
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" id="services-list">
-                    <!-- Les cartes de service seront injectées par JavaScript -->
+                    <!-- Service 1: Production Multimédia -->
+                    <div class="service-card group" onclick="services.showServiceDetail('multimedia')">
+                        <div class="pricing-badge">POPULAIRE</div>
+                        <div class="service-icon-wrapper service-multimedia">
+                            <i class="fa-solid fa-camera-retro text-3xl"></i>
+                        </div>
+                        <h3 class="font-bold text-xl mb-3 text-gray-900">Production Multimédia</h3>
+                        <p class="text-gray-600 mb-4">Prises de vue professionnelle, photo et vidéo pour tous vos évènements marquants.</p>
+                        <div class="flex items-center justify-between">
+                            <span class="text-2xl font-bold text-blue-600">À partir de 50 000 FCFA</span>
+                            <i class="fa-solid fa-arrow-right text-gray-400 group-hover:text-blue-600 transition"></i>
+                        </div>
+                    </div>
+
+                    <!-- Service 2: Développement Web -->
+                    <div class="service-card group" onclick="services.showServiceDetail('web-dev')">
+                        <div class="service-icon-wrapper service-web">
+                            <i class="fa-solid fa-code text-3xl"></i>
+                        </div>
+                        <h3 class="font-bold text-xl mb-3 text-gray-900">Développement Web</h3>
+                        <p class="text-gray-600 mb-4">Conception de sites vitrines et applications web sur mesure haute performance.</p>
+                        <div class="flex items-center justify-between">
+                            <span class="text-2xl font-bold text-indigo-600">À partir de 150 000 FCFA</span>
+                            <i class="fa-solid fa-arrow-right text-gray-400 group-hover:text-indigo-600 transition"></i>
+                        </div>
+                    </div>
+
+                    <!-- Service 3: Automatisation -->
+                    <div class="service-card group" onclick="services.showServiceDetail('automation')">
+                        <div class="service-icon-wrapper service-automation">
+                            <i class="fa-solid fa-robot text-3xl"></i>
+                        </div>
+                        <h3 class="font-bold text-xl mb-3 text-gray-900">Automatisation & IA</h3>
+                        <p class="text-gray-600 mb-4">Gagnez du temps avec des outils qui travaillent pour vous 24h/24.</p>
+                        <div class="flex items-center justify-between">
+                            <span class="text-2xl font-bold text-green-600">À partir de 25 000 FCFA</span>
+                            <i class="fa-solid fa-arrow-right text-gray-400 group-hover:text-green-600 transition"></i>
+                        </div>
+                    </div>
+
+                    <!-- Service 4: Design Graphique -->
+                    <div class="service-card group" onclick="services.showServiceDetail('design')">
+                        <div class="service-icon-wrapper service-design">
+                            <i class="fa-solid fa-palette text-3xl"></i>
+                        </div>
+                        <h3 class="font-bold text-xl mb-3 text-gray-900">Graphic Design</h3>
+                        <p class="text-gray-600 mb-4">Identité visuelle, logos et supports marketing percutants.</p>
+                        <div class="flex items-center justify-between">
+                            <span class="text-2xl font-bold text-purple-600">À partir de 20 000 FCFA</span>
+                            <i class="fa-solid fa-arrow-right text-gray-400 group-hover:text-purple-600 transition"></i>
+                        </div>
+                    </div>
+
+                    <!-- Service 5: Communication -->
+                    <div class="service-card group" onclick="services.showServiceDetail('com-journalism')">
+                        <div class="service-icon-wrapper service-communication">
+                            <i class="fa-solid fa-microphone text-3xl"></i>
+                        </div>
+                        <h3 class="font-bold text-xl mb-3 text-gray-900">Com & Journalisme</h3>
+                        <p class="text-gray-600 mb-4">Rédaction web, animation radio et gestion de communication institutionnelle.</p>
+                        <div class="flex items-center justify-between">
+                            <span class="text-2xl font-bold text-red-600">À partir de 15 000 FCFA</span>
+                            <i class="fa-solid fa-arrow-right text-gray-400 group-hover:text-red-600 transition"></i>
+                        </div>
+                    </div>
                 </div>
                 
-                <!-- Bouton voir tous les services -->
+                <!-- Bouton Voir Plus -->
                 <div class="text-center mt-12 animate-on-scroll">
                     <button onclick="services.showAllServices()" class="btn btn-secondary">
                         <i class="fa-solid fa-th-large mr-2"></i>
-                        Voir tous les services
+                        Voir tous les services en détail
                     </button>
                 </div>
             </div>
         </section>
 
-        <!-- Realisations / Portfolio -->
+        <!-- Realisations / Portfolio - VERSION STATIQUE -->
         <section id="realisations" class="py-20 bg-gray-50">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="flex flex-col md:flex-row justify-between items-end mb-12 gap-4 animate-on-scroll">
@@ -134,119 +197,47 @@
                 </div>
 
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" id="portfolio-grid">
-                    <!-- Portfolio items will be loaded here -->
-                </div>
-            </div>
-        </section>
-
-        <!-- Quote Section / Devis -->
-        <section id="devis" class="py-20 bg-blue-600 text-white overflow-hidden relative">
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-                <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center animate-on-scroll">
-                    <div>
-                        <h2 class="text-4xl font-bold mb-6">Un projet en tête ?</h2>
-                        <p class="text-blue-100 text-lg mb-8">Recevez un devis détaillé directement dans votre boîte mail.</p>
-                        <ul class="space-y-4">
-                            <li class="flex items-center gap-3"><i class="fa-solid fa-circle-check text-green-400"></i> Réponse rapide sous 24h</li>
-                            <li class="flex items-center gap-3"><i class="fa-solid fa-circle-check text-green-400"></i> Tarifs transparents</li>
-                            <li class="flex items-center gap-3"><i class="fa-solid fa-circle-check text-green-400"></i> Accompagnement personnalisé</li>
-                        </ul>
-                    </div>
-                    
-                    <div class="bg-white rounded-3xl p-8 shadow-2xl text-gray-900">
-                        <form id="devis-form" class="space-y-4">
-                            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                                <select name="project_type" class="w-full p-3 bg-gray-50 border border-gray-200 rounded-xl outline-none focus:ring-2 focus:ring-blue-500" required>
-                                    <option value="" disabled selected>Nature du Projet</option>
-                                    <option value="multimedia">Production Multimédia</option>
-                                    <option value="web">Développement Web</option>
-                                    <option value="automation">Automatisation</option>
-                                    <option value="design">Graphic Design</option>
-                                </select>
-                                <select name="budget" class="w-full p-3 bg-gray-50 border border-gray-200 rounded-xl outline-none focus:ring-2 focus:ring-blue-500">
-                                    <option value="" disabled selected>Budget estimé</option>
-                                    <option value="small">< 100k FCFA</option>
-                                    <option value="medium">100k - 500k FCFA</option>
-                                    <option value="large">> 500k FCFA</option>
-                                </select>
-                            </div>
-                            <textarea name="details" rows="3" placeholder="Détails de votre besoin..." class="w-full p-3 bg-gray-50 border border-gray-200 rounded-xl outline-none focus:ring-2 focus:ring-blue-500" required></textarea>
-                            <input type="text" name="name" placeholder="Nom complet" class="w-full p-3 bg-gray-50 border border-gray-200 rounded-xl outline-none focus:ring-2 focus:ring-blue-500" required>
-                            <input type="email" name="email" placeholder="Email" class="w-full p-3 bg-gray-50 border border-gray-200 rounded-xl outline-none focus:ring-2 focus:ring-blue-500" required>
-                            <button type="submit" class="w-full py-4 bg-blue-600 text-white font-bold rounded-xl hover:bg-blue-700 transition">Demander mon Devis</button>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Books Showcase -->
-        <section id="boutique" class="py-20 bg-blue-50">
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div class="text-center mb-16 animate-on-scroll">
-                    <h2 class="text-3xl font-bold mb-4">Mes Formations & Livres</h2>
-                    <p class="text-gray-600">Des ressources pour monter en compétences rapidement.</p>
-                </div>
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-12 max-w-4xl mx-auto">
-                    <div class="bg-white p-6 rounded-3xl shadow-xl transform hover:-translate-y-2 transition animate-on-scroll">
-                        <img src="excel.jpg" alt="Excel pour débutant" class="w-full rounded-2xl mb-6 shadow-md">
-                        <h3 class="font-bold text-xl mb-2">Excel pour débutant</h3>
-                        <p class="text-gray-500 text-sm mb-6">Maitrisez les fondamentaux pour booster votre productivité au quotidien.</p>
-                        <div class="flex items-center justify-between">
-                            <span class="text-2xl font-bold text-blue-600">6 000 FCFA</span>
-                            <button onclick="window.location.href='https://wa.me/22965458778?text=Bonjour ,%20je%20souhaite%20acheter%20votre%20livre%20Excel%20pour%20debutant'" class="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700">Acheter</button>
-                        </div>
-                    </div>
-                    <div class="bg-white p-6 rounded-3xl shadow-xl transform hover:-translate-y-2 transition animate-on-scroll">
-                        <img src="Couverture Livre.png" alt="Graphiste Pro" class="w-full rounded-2xl mb-6 shadow-md">
-                        <h3 class="font-bold text-xl mb-2">Devenir Graphiste Pro</h3>
-                        <p class="text-gray-500 text-sm mb-6">Formez-vous en 20 jours aux techniques essentielles du design professionnel.</p>
-                        <div class="flex items-center justify-between">
-                            <span class="text-2xl font-bold text-blue-600">8 000 FCFA</span>
-                            <button onclick="window.location.href='https://wa.me/22965458778?text=Bonjour ,%20je%20souhaite%20acheter%20votre%20livre%20Graphiste%20Pro'" class="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700">Acheter</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Booking / Contact -->
-        <section id="contact" class="py-20 bg-white">
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 animate-on-scroll">
-                    <div>
-                        <h2 class="text-4xl font-bold mb-6">Collaborons ensemble</h2>
-                        <div class="space-y-6">
-                            <div class="flex items-center space-x-4">
-                                <div class="w-12 h-12 bg-blue-100 text-blue-600 rounded-full flex items-center justify-center"><i class="fa-solid fa-phone"></i></div>
-                                <div><p class="text-sm text-gray-500">Téléphone</p><p class="font-bold">+229 01 65 45 87 78 / 01 96 77 02 50</p></div>
-                            </div>
-                            <div class="flex items-center space-x-4">
-                                <div class="w-12 h-12 bg-green-100 text-green-600 rounded-full flex items-center justify-center"><i class="fa-brands fa-whatsapp"></i></div>
-                                <div><p class="text-sm text-gray-500">WhatsApp</p><p class="font-bold">+22965458778</p></div>
-                            </div>
-                            <div class="flex items-center space-x-4">
-                                <div class="w-12 h-12 bg-red-100 text-red-600 rounded-full flex items-center justify-center"><i class="fa-solid fa-location-dot"></i></div>
-                                <div><p class="text-sm text-gray-500">Localisation</p><p class="font-bold">Parakou, Bénin</p></div>
+                    <!-- Project 1 -->
+                    <div class="portfolio-item group" data-category="web">
+                        <div class="relative overflow-hidden rounded-2xl aspect-[4/3] mb-4">
+                            <img src="FORUM.png" alt="Plateforme HAI-Bénin" class="w-full h-full object-cover transition duration-500 group-hover:scale-110">
+                            <div class="absolute inset-0 bg-gradient-to-t from-blue-900/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-6">
+                                <span class="text-white text-sm font-medium">Développement Web</span>
                             </div>
                         </div>
+                        <h3 class="font-bold text-lg">Plateforme Digitale HAI</h3>
+                        <p class="text-gray-500 text-sm">Conception d'une plateforme de suivi pour l'ONG Health Access Initiative.</p>
                     </div>
 
-                    <div class="bg-gray-50 p-8 rounded-3xl border border-gray-100">
-                        <h3 class="text-xl font-bold mb-6">Prendre Rendez-vous</h3>
-                        <form id="contact-form" class="space-y-4">
-                            <div class="grid grid-cols-2 gap-4">
-                                <input type="text" name="name" placeholder="Nom" class="p-3 rounded-xl border border-gray-200 outline-none" required>
-                                <input type="text" name="surname" placeholder="Prénom" class="p-3 rounded-xl border border-gray-200 outline-none" required>
+                    <!-- Project 2 -->
+                    <div class="portfolio-item group" data-category="design">
+                        <div class="relative overflow-hidden rounded-2xl aspect-[4/3] mb-4">
+                            <img src="Automedication-Grossesse ok (2).png" alt="Branding" class="w-full h-full object-cover transition duration-500 group-hover:scale-110">
+                            <div class="absolute inset-0 bg-gradient-to-t from-blue-900/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-6">
+                                <span class="text-white text-sm font-medium">Graphic Design</span>
                             </div>
-                            <input type="email" name="email" placeholder="Email" class="w-full p-3 rounded-xl border border-gray-200 outline-none" required>
-                            <textarea name="message" placeholder="Votre message ou date de RDV..." rows="4" class="w-full p-3 rounded-xl border border-gray-200 outline-none" required></textarea>
-                            <button type="submit" class="w-full py-4 bg-blue-600 text-white font-bold rounded-xl hover:bg-blue-700 transition">Envoyer la demande</button>
-                        </form>
+                        </div>
+                        <h3 class="font-bold text-lg">Identité Visuelle Pro</h3>
+                        <p class="text-gray-500 text-sm">Charte graphique complète pour un programme de santé communautaire.</p>
+                    </div>
+
+                    <!-- Project 3 -->
+                    <div class="portfolio-item group" data-category="media">
+                        <div class="relative overflow-hidden rounded-2xl aspect-[4/3] mb-4">
+                            <img src="Mariage.png" alt="Multimedia" class="w-full h-full object-cover transition duration-500 group-hover:scale-110">
+                            <div class="absolute inset-0 bg-gradient-to-t from-blue-900/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-6">
+                                <span class="text-white text-sm font-medium">Multimedia</span>
+                            </div>
+                        </div>
+                        <h3 class="font-bold text-lg">Reportage Mariage Prestige</h3>
+                        <p class="text-gray-500 text-sm">Production de contenus audiovisuels (Photo + Vidéo) pour tous types d'évènements à prix concurrentiel.</p>
                     </div>
                 </div>
             </div>
         </section>
+
+        <!-- Le reste de ton HTML reste identique -->
+        <!-- ... -->
     </main>
 
     <!-- Detail View Wrapper (Hidden by default) -->
@@ -257,7 +248,7 @@
                     <i class="fa-solid fa-arrow-left"></i> Retour
                 </button>
                 <div class="hidden md:flex gap-4">
-                    <a href="#contact" onclick="showSection('main-content')" class="btn btn-primary">Commander ce service</a>
+                    <a href="#contact" onclick="showSection('main-content')" class="text-sm font-bold bg-blue-600 text-white px-6 py-2 rounded-xl">Commander ce service</a>
                 </div>
             </div>
             
@@ -309,10 +300,10 @@
     <div id="download-modal" class="fixed inset-0 z-[101] hidden flex items-center justify-center p-4 bg-black/60 backdrop-blur-md">
         <div class="bg-white rounded-3xl p-8 max-w-2xl w-full shadow-2xl max-h-[90vh] overflow-y-auto">
             <div class="flex justify-between items-center mb-6">
-                <h3 class="text-2xl font-bold">Pack Hostinger</h3>
+                <h3 class="text-2xl font-bold">..</h3>
                 <button onclick="closeDownloadModal()" class="text-gray-400 hover:text-gray-600"><i class="fa-solid fa-times text-xl"></i></button>
             </div>
-            <p class="text-gray-600 mb-6">Téléchargez les fichiers pour héberger votre site sur Hostinger :</p>
+            <p class="text-gray-600 mb-6">Clonez mon site :</p>
             <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <button onclick="downloadFile('index.html')" class="p-3 bg-gray-100 hover:bg-gray-200 rounded-xl text-center font-semibold text-sm transition">index.html</button>
                 <button onclick="downloadFile('style.css')" class="p-3 bg-gray-100 hover:bg-gray-200 rounded-xl text-center font-semibold text-sm transition">style.css</button>
